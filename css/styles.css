@@ -13,6 +13,41 @@ img {border:none}
 
 p {margin:30px 0; padding:0}
 
+form {margin:30px 0; padding:0}
+
+.form-row {margin:15px 0 15px -15px}
+.form-row:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.form-third {float:left; width:33.33%; padding:0 0 0 15px; box-sizing:border-box}
+.form-full {margin:0 0 0 15px}
+
+.form-input {position:relative}
+.form-input-date:before {content:""; display:block; position:absolute; right:20px; top:21px; width:16px; height:16px; background:url(../images/form-input-date.png)}
+.form-input span {position:absolute; font-size:14px; line-height:30px; left:19px; top:15px; color:#999; transition:all .1s ease}
+.form-input.focus span {top:3px}
+
+.form-input input,
+.form-input textarea {position:relative; border:1px solid #e0e0e0; font:bold 16px/30px ProximaNova, sans-serif; color:#000; vertical-align:top; margin:0; padding:23px 19px 5px 19px; width:100%; height:60px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
+.form-input textarea {height:auto; resize:none; overflow:auto}
+.form-input input::-webkit-input-placeholder {opacity:1; color:#999; font-weight:normal; font-size:14px}
+.form-input input::-moz-placeholder {opacity:1; color:#999; font-weight:normal; font-size:14px}
+.form-input input:-ms-input-placeholder {opacity:1; color:#999; font-weight:normal; font-size:14px}
+.form-input textarea::-webkit-input-placeholder {opacity:1; color:#999; font-weight:normal; font-size:14px}
+.form-input textarea::-moz-placeholder {opacity:1; color:#999; font-weight:normal; font-size:14px}
+.form-input textarea:-ms-input-placeholder {opacity:1; color:#999; font-weight:normal; font-size:14px}
+.form-input input.error,
+.form-input textarea.error {border-color:#f00}
+
+label.error {display:none !important}
+
+::-ms-clear {display:none}
+
+.form-select select {position:relative; border:1px solid #e0e0e0; font:bold 16px/30px ProximaNova, sans-serif; color:#000; vertical-align:top; margin:0; padding:23px 19px 5px 19px; width:100%; height:60px; box-sizing:border-box; outline:none; border-radius:0; background:url(../images/blank.gif); -webkit-appearance:none}
+
+.form-submit {padding:28px 0 0 0; text-align:center}
+.form-submit button {display:inline-block; vertical-align:top; position:relative; border-radius:0; background:transparent; margin:0; padding:0; outline:none; width:265px; border:none; text-decoration:none; height:45px; box-sizing:border-box; color:#fff; text-align:center; font:bold 12px/45px ProximaNova, sans-serif; -webkit-appearance:none; cursor:pointer; letter-spacing:2px; text-transform:uppercase}
+.form-submit button:before {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:#939; transform:skewX(-27deg)}
+.form-submit button .btn-text {position:relative}
+
 .wrapper {min-width:480px; width:100%; min-height:100%; position:relative; overflow:hidden}
 .wrapper-inner {padding:0 0 345px 0}
 .header-fixed .wrapper-inner {padding-top:150px}
@@ -357,10 +392,11 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 .service-other-item-title {font-weight:bold; font-size:24px; line-height:30px; letter-spacing:0; text-align:center; padding:29px 0 0 0}
 
 .service-stories {padding:116px 0 117px 0}
-.service-stories-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 43px 120px; position:relative}
+.service-stories-inner {padding:0 0 109px 0}
+.service-stories-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 14px 120px; position:relative}
 .service-stories-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
 
-.stories-list {margin:0 -15px; font-size:0; line-height:0; letter-spacing:-1px; padding:22px 0 28px 0}
+.stories-list {margin:0 -15px; font-size:0; line-height:0; letter-spacing:-1px; padding:51px 0 28px 0}
 .stories-item {display:inline-block; vertical-align:top; width:25%; padding:25px 15px; box-sizing:border-box}
 .stories-item a {display:block; text-decoration:none; color:#000}
 .stories-item-preview img {width:100%; border-radius:50%; transition:color .1s 0s ease-in-out}
@@ -368,3 +404,41 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 .stories-item-category {font-size:16px; line-height:30px; letter-spacing:0; text-align:center; color:#ccc; text-transform:uppercase; padding:31px 0 0 0}
 .stories-item-title {font-weight:bold; font-size:24px; line-height:30px; letter-spacing:0; text-align:center}
 .stories-all-link {text-align:center; font-weight:bold; letter-spacing:2px; text-transform:uppercase; font-size:16px}
+
+.story-category {text-transform:uppercase; color:#ccc; font-size:16px; letter-spacing:2px; margin:-63px 0 0 0}
+.story-title {font-weight:bold; font-size:48px; line-height:50px}
+.story-descr {color:#666; padding:19px 0 0 0}
+.story-descr:after {content:""; display:block; width:68px; height:1px; background:#000; margin:42px 0 0 0}
+.story-order-link {font-weight:bold; line-height:50px; padding:48px 0 0 0}
+.story-order-link a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; padding:0 80px}
+.story-order-link a:before {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:#939; transform:skewX(-27deg)}
+.story-order-link-text {position:relative}
+
+.about {padding:95px 0 0 0}
+.about-title {font-weight:bold; font-size:72px; line-height:72px; position:relative}
+.about-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.about-text {margin:60px 0 97px 0}
+
+.about-block-1 {margin:0 0 0 120px; max-width:650px}
+.about-block-2 {margin:0 0 0 240px; max-width:450px}
+.about-block-3 {margin:0 0 0 480px; max-width:550px}
+
+.content-contacts {background:url(../images/contacts.jpg) no-repeat center top; border-top:none; padding:0}
+.content-contacts-inner {height:780px; text-align:center}
+.contacts-title {font-weight:bold; font-size:30px; line-height:36px; padding:50px 0 74px 0}
+.contacts-subtitle {font-size:14px; text-transform:uppercase; color:#85a6b4}
+.contacts-value {font-weight:bold; margin:-2px 0 32px 0}
+
+.window-open body {overflow:hidden}
+
+.window {position:fixed; left:0; top:0; right:0; bottom:0; z-index:99997; overflow:auto; background:rgba(0, 0, 0, .8)}
+.window-loading {position:absolute; left:50%; top:50%; width:24px; height:24px; margin:-12px 0 0 -12px; background:url(../images/loading.gif)}
+.window-container {position:absolute; z-index:99999; left:50%; top:50%}
+.window-container-load {position:fixed; left:-9999px; top:-9999px}
+.window-content {position:relative; background:#fff}
+.window-close {display:block; position:absolute; width:12px; height:12px; right:-5px; top:-7px}
+.window-close:after {content:""; display:block; position:absolute; left:0; top:0; width:12px; height:12px; background:url(../images/window-close.svg) no-repeat; background-size:100%}
+.window-close:before {content:""; display:block; position:absolute; left:-19px; top:-19px; right:-19px; bottom:-19px; background:#939; transform:skewX(-27deg)}
+
+.window-order {width:690px; padding:42px 75px 25px 75px}
+.window-order-title {text-align:center; font-weight:bold; font-size:30px; line-height:36px; padding:0 0 18px 0}

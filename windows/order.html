@@ -1,0 +1,56 @@
+<div class="window-order">
+    <div class="window-order-title">Заказать оформление</div>
+    <form action="windows/success.html" method="post" class="window-form">
+        <div class="form-row">
+            <div class="form-third">
+                <div class="form-select">
+                    <select name="category" data-placeholder="Направление">
+                        <option value=""></option>
+                        <option value="1">Праздник</option>
+                        <option value="2">Декор</option>
+                        <option value="3">Леди</option>
+                        <option value="4">Джентельмены</option>
+                        <option value="5">Дети</option>
+                        <option value="6">Бизнес</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-third">
+                <div class="form-select">
+                    <select name="holiday" data-placeholder="Праздник" id="holidaySelect">
+                        <option value=""></option>
+                        <option value="1">День рождения</option>
+                        <option value="2">Свадьба</option>
+                        <option value="3" data-month="01" data-day="01">Новый год</option>
+                        <option value="4" data-month="02" data-day="14">Валентинов день</option>
+                        <option value="5" data-month="02" data-day="23">23 февраля</option>
+                        <option value="6" data-month="03" data-day="08">8 марта</option>
+                        <option value="7">Выпускной</option>
+                        <option value="8" data-month="09" data-day="01">1 сентября</option>
+                        <option value="9" data-month="12" data-day="12">День Конституции</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-third">
+                <div class="form-input form-input-date"><span class="form-input-label">Дата</span><input type="text" name="date" value="" id="holidayDate" class="required" /></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-full">
+                <div class="form-input"><span class="form-input-label">Комментарии к заказу</span><textarea name="comments" rows="3" cols="10"></textarea></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-third">
+                <div class="form-input"><span class="form-input-label">ФИО</span><input type="text" name="name" value="" class="required" /></div>
+            </div>
+            <div class="form-third">
+                <div class="form-input"><span class="form-input-label">Телефон</span><input type="text" name="phone" value="" class="required maskPhone" /></div>
+            </div>
+            <div class="form-third">
+                <div class="form-input"><span class="form-input-label">Почта</span><input type="text" name="email" value="" class="email" /></div>
+            </div>
+        </div>
+        <div class="form-submit"><button type="submit"><span class="btn-text">Заказать</span></button></div>
+    </form>
+</div>

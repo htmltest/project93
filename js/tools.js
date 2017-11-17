@@ -56,7 +56,7 @@ $(document).ready(function() {
         }
     });
 
-    $('.main-history, .main-how, .service-call').parallaxBackground();
+    $('.main-history, .main-how, .service-call, .content-about, .content-contacts-inner').parallaxBackground();
 
     $('.services-list').isotope({
         itemSelector: '.services-item'
@@ -131,6 +131,17 @@ $(document).ready(function() {
 
 });
 
+$(window).on('resize', function() {
+    $('.form-select select').chosen('destroy');
+    $('.form-select select').chosen({disable_search: true, placeholder_text_multiple: ' ', no_results_text: 'Нет результатов'});
+    $('.form-select select').each(function() {
+        var curSelect = $(this);
+        if (curSelect.data('placeholder') != '') {
+            curSelect.parent().find('.chosen-single').prepend('<strong>' + curSelect.data('placeholder') + '</strong>');
+        }
+    });
+});
+
 function initForm(curForm) {
     curForm.find('input.maskPhone').mask('+7 (999) 999-99-99');
 
@@ -147,6 +158,50 @@ function initForm(curForm) {
     curForm.find('.form-input input, .form-input textarea').blur(function() {
         if ($(this).val() == '') {
             $(this).parent().removeClass('focus');
+        }
+    });
+
+    var dateFormat = 'dd.mm.yy';
+    curForm.find('.form-input-date input').datepicker({
+        dateFormat: dateFormat,
+        minDate: 0
+    });
+    window.setInterval(function() {
+        $('.form-input-date input').each(function() {
+            if ($(this).val() != '') {
+                $(this).parent().addClass('focus');
+            }
+        });
+    }, 100);
+
+    $('.window #holidaySelect').change(function() {
+        var curSelect = $(this);
+        var holidayMonth = $('.window #holidaySelect option:selected').data('month');
+        var holidayDay = $('.window #holidaySelect option:selected').data('day');
+        if (typeof (holidayMonth) != 'undefined' && typeof (holidayDay) != 'undefined') {
+            var curDate = new Date();
+            var curYear = curDate.getFullYear();
+            var curMonth = curDate.getMonth();
+            var curDay = curDate.getDate();
+            var newMonth = Number(String(holidayMonth).replace('0', '')) - 1;
+            var newDay = Number(String(holidayDay).replace('0', ''));
+            if (newMonth < curMonth) {
+                curYear++;
+            }
+            if (newMonth == curMonth) {
+                if (newDay <= curDay) {
+                    curYear++;
+                }
+            }
+            $('#holidayDate').datepicker('setDate', new Date(curYear, newMonth, newDay, 0, 0, 0, 0));
+        }
+    });
+
+    curForm.find('.form-select select').chosen({disable_search: true, no_results_text: 'Нет результатов'});
+    curForm.find('.form-select select').each(function() {
+        var curSelect = $(this);
+        if (curSelect.data('placeholder') != '') {
+            curSelect.parent().find('.chosen-single').prepend('<strong>' + curSelect.data('placeholder') + '</strong>');
         }
     });
 
