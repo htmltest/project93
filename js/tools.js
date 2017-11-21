@@ -290,6 +290,7 @@ function initForm(curForm) {
         curForm.validate({
             ignore: '',
             submitHandler: function(form) {
+                $(form).find('.form-loading').css({'display': 'block'});
                 windowOpen($(form).attr('action'), $(form).serialize());
             }
         });
@@ -344,7 +345,7 @@ function windowOpen(linkWindow, dataWindow) {
                 windowPosition();
             });
 
-            $('.window-close').click(function(e) {
+            $('.window-close, .window-close-link').click(function(e) {
                 windowClose();
                 e.preventDefault();
             });
