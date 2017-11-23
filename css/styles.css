@@ -5,9 +5,10 @@
 
 html {min-width:480px; height:100%}
 
-body {min-width:480px; height:100%; margin:0; padding:0; font:20px/30px ProximaNova, sans-serif; color:#000; background:#fff; -webkit-text-size-adjust:100%}
+body {min-width:480px; height:100%; margin:0; padding:0; font:17px/24px ProximaNova, sans-serif; color:#000; background:#fff; -webkit-text-size-adjust:100%}
 
 a {color:#939}
+a.dots-link {text-decoration:none; border-bottom:1px dashed #939}
 
 img {border:none}
 
@@ -120,11 +121,21 @@ header {background:#fff; height:150px}
     .title {display:none}
 }
 
-.mobile-menu-link {display:none}
+.mobile-menu {display:none}
 
 @media screen and (max-width:1199px) {
-    .mobile-menu-link {display:block; float:right; margin:64px -35px 0 40px; width:30px; border-top:2px solid #000; border-bottom:2px solid #000; position:relative; height:18px}
+    .mobile-menu {display:block; float:right; position:relative; margin:64px -35px 0 40px}
+    .mobile-menu-link {display:block; width:30px; border-top:2px solid #000; border-bottom:2px solid #000; position:relative; height:18px}
     .mobile-menu-link:after {content:""; display:block; position:absolute; left:0; top:8px; right:0; height:2px; background:#000}
+    .mobile-menu-content {display:none}
+    .mobile-menu.open .mobile-menu-content {display:block; position:absolute; right:-20px; top:55px; white-space:nowrap; z-index:99; padding:15px 30px 20px 30px; border-top:1px solid #ccc; background:rgba(51, 51, 51, .75)}
+    .mobile-menu-content:before {content:""; display:block; width:0; height:0; border-bottom:23px solid #686868; border-left:30px solid transparent; position:absolute; right:35px; top:-23px}
+    .mobile-menu-content ul {margin:0; padding:0; list-style:none; font-weight:bold; font-size:15px; line-height:20px; text-transform:uppercase; letter-spacing:1px}
+    .mobile-menu-content ul+ul {padding-top:15px; font-weight:normal}
+    .mobile-menu-content ul li {margin:0; padding:15px 0 10px 0}
+    .mobile-menu-content ul li:before {display:none}
+    .mobile-menu-content ul li a {color:#fff; text-decoration:none}
+    .mobile-menu-content ul li a:hover {text-decoration:underline}
 }
 
 .header-phone {float:right; margin:55px 0 0 0; width:40px; height:40px; background:url(../images/header-phone.png) no-repeat}
@@ -153,7 +164,7 @@ nav ul li.active a {color:#fff}
 }
 
 .menu-add {float:right; margin:65px 60px 0 0; position:relative}
-.menu-add-icon {width:30px; height:19px; border-top:1px solid #000; border-bottom:1px solid #000; position:relative}
+.menu-add-icon {width:30px; height:19px; border-top:1px solid #000; border-bottom:1px solid #000; position:relative; cursor:pointer}
 .menu-add-icon:before {content:""; display:block; position:absolute; left:0; top:9px; right:0; height:1px; background:#000}
 
 @media screen and (max-width:1439px) {
@@ -164,18 +175,28 @@ nav ul li.active a {color:#fff}
     .menu-add {display:none}
 }
 
+.menu-add-content {display:none; position:absolute; left:-30px; top:55px; width:210px; z-index:99; padding:55px 0 20px 30px; border-top:1px solid #ccc; background:rgba(51, 51, 51, .75)}
+.menu-add.open .menu-add-content {display:block}
+.menu-add-content:before {content:""; display:block; width:0; height:0; border-bottom:23px solid #686868; border-right:30px solid transparent; position:absolute; left:45px; top:-23px}
+.menu-add-close {position:absolute; left:30px; top:30px; width:15px; height:15px; background:url(../images/menu-add-close.png) no-repeat; cursor:pointer}
+.menu-add-content ul {margin:0; padding:0; list-style:none; font-size:15px; line-height:20px; text-transform:uppercase; letter-spacing:1px}
+.menu-add-content ul li {margin:0; padding:15px 0 10px 0}
+.menu-add-content ul li:before {display:none}
+.menu-add-content ul li a {color:#fff; text-decoration:none}
+.menu-add-content ul li a:hover {text-decoration:underline}
+
 .slider-list {position:relative; width:100%; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; overflow:hidden}
-.slider-item {display:inline-block; vertical-align:top; width:100%; white-space:normal; font-size:20px; line-height:30px; letter-spacing:0; background:#000 no-repeat center top}
-.slider-item-inner {width:510px; height:720px; margin:0 0 0 90px; position:relative}
+.slider-item {display:inline-block; vertical-align:top; width:100%; white-space:normal; font-size:17px; line-height:24px; letter-spacing:0; background:#000 no-repeat center top}
+.slider-item-inner {width:510px; height:600px; margin:0 0 0 90px; position:relative}
 .slider-item-blur {position:absolute; left:0; top:0; right:0; bottom:0; overflow:hidden}
 .slider-item-blur-inner {position:absolute; left:0; top:0; right:-720px; bottom:0; background:no-repeat center; filter:blur(36px); transform:scale(1.2)}
-.slider-item-content {position:relative; height:720px; padding:0 75px; color:#fff}
-.slider-item-category {text-transform:uppercase; padding:82px 0 0 0; letter-spacing:2px}
-.slider-item-title {font-weight:bold; font-size:72px; line-height:72px; padding:29px 0 0 0}
-.slider-item-text {line-height:28px; padding:76px 0 0 0; min-height:138px}
-.slider-item-text:before {content:""; display:block; width:240px; height:1px; background:#fff; margin:0 0 52px -75px}
-.slider-item-link {padding:60px 0 0 0}
-.slider-item-link a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; padding:0 24px; font-weight:bold; font-size:20px; line-height:43px; transition:color .1s 0s ease-in-out}
+.slider-item-content {position:relative; height:600px; padding:0 75px; color:#fff}
+.slider-item-category {text-transform:uppercase; padding:50px 0 0 0; letter-spacing:2px; font-size:15px}
+.slider-item-title {font-weight:bold; font-size:60px; line-height:60px; padding:25px 0 0 0}
+.slider-item-text {font-size:17px; line-height:24px; padding:52px 0 0 0; min-height:112px}
+.slider-item-text:before {content:""; display:block; width:240px; height:1px; background:#fff; margin:0 0 39px -75px}
+.slider-item-link {padding:55px 0 0 0}
+.slider-item-link a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; padding:0 14px; font-weight:bold; font-size:20px; line-height:43px; transition:color .1s 0s ease-in-out}
 .slider-item-link a:hover {color:#000}
 .slider-item-link a:before {content:""; display:block; position:absolute; left:-14px; top:-1px; right:-14px; bottom:-1px; border:1px solid #fff; transform:skewX(-27deg); transition:background-color .1s 0s ease-in-out}
 .slider-item-link a:hover:before {background:#fff}
@@ -193,6 +214,10 @@ nav ul li.active a {color:#fff}
 .slider-list .slick-dots li button {display:block; width:15px; height:15px; border-radius:50%; border:1px solid #fff; background:transparent; margin:0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; font-size:0; line-height:0; text-indent:100px}
 .slider-list .slick-dots li button:hover {background:#fff}
 .slider-list .slick-dots li.slick-active button {background:#fff; cursor:default}
+
+@media screen and (min-width:1921px) {
+    .slider-item {background-size:100% auto}
+}
 
 @media screen and (max-width:1439px) {
     .slider-item-inner {margin:0; width:470px}
@@ -231,10 +256,10 @@ nav ul li.active a {color:#fff}
 }
 
 .main-history-descr {float:left; width:480px; padding:51px 0 0 120px}
-.main-history-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 39px 0; position:relative}
-.main-history-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
-.main-history-text {line-height:28px}
-.main-history-text p  {margin:28px 0; padding:0}
+.main-history-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 39px 0; position:relative}
+.main-history-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.main-history-text {font-size:17px; line-height:24px}
+.main-history-text p  {margin:24px 0; padding:0}
 
 @media screen and (max-width:1439px) {
     .main-history-descr {padding-left:100px; width:370px}
@@ -245,18 +270,18 @@ nav ul li.active a {color:#fff}
     .main-history-title:before {left:-74px}
 }
 
-.main-history-list {float:right; width:690px; padding:15px 0 0 0}
-.main-history-item {padding:45px 0 0 0}
+.main-history-list {float:right; width:630px; padding:25px 60px 0 0}
+.main-history-item {padding:35px 0 0 0}
 .main-history-item:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-.main-history-item-preview {float:left; width:330px; line-height:0}
+.main-history-item-preview {float:left; width:270px; line-height:0; padding:10px 0 0 0}
 .main-history-item-preview img {width:100%; border-radius:50%; transition:all .1s ease-in-out}
 .main-history-item-preview:hover img {transform:scale(1.05); box-shadow:0 5px 29px rgba(162, 160, 162, .88)}
-.main-history-item-text {margin:0 0 0 360px; padding:23px 0 0 0}
-.main-history-item-category {text-transform:uppercase; color:#ccc; letter-spacing:2px; font-size:16px}
+.main-history-item-text {margin:0 0 0 300px}
+.main-history-item-category {text-transform:uppercase; color:#ccc; letter-spacing:2px; font-size:15px}
 .main-history-item-name {font-weight:bold; font-size:30px; line-height:36px}
 .main-history-item-name a {color:#000; text-decoration:none}
-.main-history-item-descr {color:#666; font-size:20px; line-height:28px; padding:27px 0 0 0}
-.main-history-item-link {padding:28px 0 0 0; font-size:20px; line-height:28px}
+.main-history-item-descr {color:#666; font-size:17px; line-height:24px; padding:23px 0 0 0}
+.main-history-item-link {padding:24px 0 0 0; font-size:17px; line-height:24px}
 
 @media screen and (max-width:1439px) {
     .main-history-list {width:570px}
@@ -277,17 +302,23 @@ nav ul li.active a {color:#fff}
 
 .main-how {background:#28292b url(../images/main-how.jpg) no-repeat center top; padding:0 0 38px 0}
 
+@media screen and (min-width:1921px) {
+    .main-how {background:#28292b url(../images/main-how.jpg) no-repeat center !important; background-size:cover !important}
+    .main-how .parallax-inner {display:none}
+}
+
 @media screen and (max-width:1199px) {
     .main-how {background:#28292b url(../images/main-how-mobile.jpg) no-repeat center !important; background-size:cover !important; padding:0 0 102px 0}
     .main-how .parallax-inner {display:none}
 }
 
-.main-how-list {float:left; font-weight:bold; text-align:center; color:#fff; width:59%; padding:16px 0 0 0}
+.main-how-list {float:left; font-weight:bold; text-align:center; color:#fff; width:59%; padding:26px 0 0 0}
 .main-how-list-inner {width:584px; margin:0 auto}
 .main-how-list-row:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
 .main-how-list-item {float:left; width:50%}
-.main-how-list-item-icon-wrap {height:119px; line-height:119px}
-.main-how-list-item-icon {position:relative; display:inline-block; vertical-align:middle; background:no-repeat; background-size:100%}
+.main-how-list-item-right {float:right}
+.main-how-list-item-icon-wrap {height:100px; line-height:100px}
+.main-how-list-item-icon {position:relative; display:inline-block; vertical-align:middle; background:no-repeat; background-size:100%; transform:scale(.8387)}
 .main-how-list-item-icon:after {content:""; display:block; position:absolute; background:no-repeat; background-size:100%}
 .main-how-list-item-icon-1 {width:116px; height:118px; background-image:url(../images/main-how-1-shadow.png)}
 .main-how-list-item-icon-1:after {left:12px; top:12px; width:92px; height:93px; background-image:url(../images/main-how-1.svg)}
@@ -301,17 +332,15 @@ nav ul li.active a {color:#fff}
 .main-how-list-item-icon-5:after {left:14px; top:14px; width:90px; height:90px; background-image:url(../images/main-how-5.svg)}
 .main-how-list-item-icon-6 {width:116px; height:116px; background-image:url(../images/main-how-6-shadow.png)}
 .main-how-list-item-icon-6:after {left:13px; top:13px; width:90px; height:90px; background-image:url(../images/main-how-6.svg)}
-.main-how-list-item-icon-7 {width:118px; height:87px; background-image:url(../images/main-how-7-shadow.png)}
-.main-how-list-item-icon-7:after {left:14px; top:14px; width:90px; height:60px; background-image:url(../images/main-how-7.svg)}
 .main-how-list-item-icon-8 {width:119px; height:119px; background-image:url(../images/main-how-8-shadow.png)}
 .main-how-list-item-icon-8:after {left:13px; top:13px; width:93px; height:93px; background-image:url(../images/main-how-8.svg)}
-.main-how-list-item-title {position:relative; margin:-9px 0 0 0}
+.main-how-list-item-title {position:relative; margin:1px 0 0 0}
 .main-how-list-sep {float:left; width:150px; height:12px; margin:54px -75px 0 -75px; position:relative; overflow:hidden}
 .main-how-list-sep-inner {width:151px; height:12px; background:no-repeat; background-size:100%}
 .main-how-list-sep-right {float:right; background-image:url(../images/main-how-right.svg)}
 .main-how-list-sep-left {float:left; background-image:url(../images/main-how-left.svg)}
 .main-how-list-row-down:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-.main-how-list-row-down-inner {width:50%; padding:8px 0 14px 0}
+.main-how-list-row-down-inner {width:50%; padding:8px 0 -6px 0}
 .main-how-list-row-down-left {float:left}
 .main-how-list-row-down-right {float:right}
 .main-how-list-row-down-icon {width:12px; height:31px; margin:0 auto; background:url(../images/main-how-down.svg) no-repeat; background-size:100%}
@@ -331,9 +360,10 @@ nav ul li.active a {color:#fff}
 }
 
 .main-how-text {float:right; width:570px; color:#fff; padding:51px 0 0 0; line-height:28px}
-.main-how-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 39px 0; position:relative}
-.main-how-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
-.main-how-text p {margin:28px 0}
+.main-how-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 39px 0; position:relative}
+.main-how-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.main-how-text {font-size:17px; line-height:24px}
+.main-how-text p {margin:24px 0}
 .main-how-link {padding:15px 0 0 0}
 .main-how-link a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; padding:0 30px; font-weight:bold; font-size:20px; line-height:43px; transition:color .1s 0s ease-in-out}
 .main-how-link a:hover {color:#000}
@@ -353,9 +383,9 @@ nav ul li.active a {color:#fff}
     .main-how-link a:before {left:13px; right:13px}
 }
 
-.main-partners-descr {float:left; width:480px; padding:51px 0 0 120px}
-.main-partners-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 39px 0; position:relative}
-.main-partners-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.main-partners-descr {float:left; width:33.33%; padding:51px 0 0 120px; box-sizing:border-box}
+.main-partners-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 39px 0; position:relative}
+.main-partners-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
 
 @media screen and (max-width:1439px) {
     .main-partners-descr {width:370px; padding-left:100px}
@@ -366,17 +396,18 @@ nav ul li.active a {color:#fff}
     .main-partners-title:before {left:-74px}
 }
 
-.main-partners-list {float:right; width:42%; padding:15px 15% 0 0; font-size:0; line-height:0; letter-spacing:-1px}
-.main-partners-item {display:inline-block; vertical-align:middle; width:50%; box-sizing:border-box; padding:0 30px}
-.main-partners-item a {display:inline-block; vertical-align:top; position:relative}
-.main-partners-item a img {display:block; width:100%}
+.main-partners-list {float:right; width:66.66%; padding:15px 0 0 0; font-size:0; line-height:0; letter-spacing:-1px}
+.main-partners-item {float:left; width:33.33%; box-sizing:border-box; text-align:center; line-height:125px; height:155px; padding:15px}
+.main-partners-item-big {height:250px}
+.main-partners-item a {display:inline-block; vertical-align:middle; position:relative; line-height:0}
+.main-partners-item a img {max-width:100%}
 .main-partners-item a img:nth-child(2) {position:absolute; left:0; top:0; opacity:0}
 .main-partners-item a:hover img:nth-child(1) {opacity:0}
 .main-partners-item a:hover img:nth-child(2) {opacity:1}
 
 @media screen and (max-width:1199px) {
     .main-partners-list {float:none; width:auto; padding:0; margin:0 -30px}
-    .main-partners-item {padding:0}
+    .main-partners-item {width:50%}
 }
 
 footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; min-width:480px}
@@ -501,13 +532,13 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 }
 
 .services-seo {padding:51px 120px 0 120px}
-.services-seo-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 39px 0; position:relative}
-.services-seo-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
-.services-seo-text {line-height:28px}
-.services-seo-text p {margin:28px 0}
+.services-seo-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 39px 0; position:relative}
+.services-seo-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.services-seo-text {line-height:24px}
+.services-seo-text p {margin:24px 0}
 
 @media screen and (max-width:1439px) {
-    .services-seo {padding-left:15px; padding-right:15px}
+    .services-seo {padding-left:15px}
 }
 
 @media screen and (max-width:1199px) {
@@ -518,6 +549,12 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 
 .service {padding:25px 0 0 0}
 .service:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+
+.service-title-mobile {display:none}
+
+@media screen and (max-width:1199px) {
+    .service-title-mobile {display:block; font-weight:bold; font-size:48px; line-height:50px; margin:0 0 25px 0; text-align:center}
+}
 
 .service-gallery {float:left; width:66.66%; line-height:0}
 .service-gallery-big {position:relative; cursor:pointer}
@@ -564,7 +601,8 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 }
 
 @media screen and (max-width:1199px) {
-    .service-text {float:none; width:auto}
+    .service-title  {display:none}
+    .service-text {float:none; width:auto; padding:30px 0 0 0}
     .service-order-link a {display:block; padding:0; text-align:center}
     .service-order-link a:before {left:13px; right:13px}
 }
@@ -572,8 +610,8 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 .rubl {font-family:Roboto, sans-serif; font-size:26px}
 
 .service-balls {padding:106px 0 0 0}
-.service-balls-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 0 120px; position:relative}
-.service-balls-title:before {content:""; display:block; position:absolute; left:-94px; top:-20px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.service-balls-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 0 120px; position:relative}
+.service-balls-title:before {content:""; display:block; position:absolute; left:-94px; top:-36px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
 .service-balls-list {margin:56px -15px 0 -15px; font-size:0; line-height:0; letter-spacing:-1px}
 .service-balls-list-inner {position:relative; width:100%; white-space:nowrap}
 .service-balls-item {display:inline-block; vertical-align:top; width:25%; padding:15px; box-sizing:border-box}
@@ -598,8 +636,8 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 
 .service-call {background:#28292b url(../images/main-how.jpg) no-repeat center top; padding:85px 0 104px 0; color:#fff}
 .service-call-inner {padding:0 0 0 120px}
-.service-call-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 29px 0; position:relative}
-.service-call-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.service-call-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 29px 0; position:relative}
+.service-call-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
 .service-call-link {padding:54px 0 0 0}
 .service-call-link a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; padding:0 20px; font-weight:bold; font-size:20px; line-height:43px; transition:color .1s 0s ease-in-out}
 .service-call-link a:hover {color:#000}
@@ -617,8 +655,8 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 }
 
 .service-other {background:#f7f7f7; padding:91px 0 0 0}
-.service-other-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 0 120px; position:relative}
-.service-other-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.service-other-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 0 120px; position:relative}
+.service-other-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
 .service-other-list {margin:0 -15px; font-size:0; line-height:0; letter-spacing:-1px; padding:22px 0 49px 0}
 .service-other-item {display:inline-block; vertical-align:top; width:25%; padding:43px 15px; box-sizing:border-box}
 .service-other-item a {display:block; text-decoration:none; color:#000}
@@ -641,8 +679,8 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 
 .service-stories {padding:116px 0 117px 0}
 .service-stories-inner {padding:0 0 109px 0}
-.service-stories-title {font-weight:bold; font-size:72px; line-height:72px; margin:0 0 14px 120px; position:relative}
-.service-stories-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.service-stories-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 14px 120px; position:relative}
+.service-stories-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
 
 @media screen and (max-width:1199px) {
     .service-stories-title {font-size:50px; line-height:60px; margin:0 0 14px 0}
@@ -693,8 +731,8 @@ footer {background:#000; height:345px; position:relative; margin:-345px 0 0 0; m
 }
 
 .about {padding:95px 0 0 0}
-.about-title {font-weight:bold; font-size:72px; line-height:72px; position:relative}
-.about-title:before {content:""; display:block; position:absolute; left:-94px; top:9px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
+.about-title {font-weight:bold; font-size:60px; line-height:60px; position:relative}
+.about-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
 .about-text {margin:60px 0 97px 0}
 
 @media screen and (max-width:1199px) {

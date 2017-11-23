@@ -163,6 +163,31 @@ $(document).ready(function() {
         });
     });
 
+    $('.menu-add-icon').click(function() {
+        $('.menu-add').toggleClass('open');
+    });
+
+    $('.menu-add-close').click(function() {
+        $('.menu-add').removeClass('open');
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.menu-add').length == 0) {
+            $('.menu-add').removeClass('open');
+        }
+    });
+
+    $('.mobile-menu-link').click(function(e) {
+        $('.mobile-menu').toggleClass('open');
+        e.preventDefault();
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.mobile-menu').length == 0) {
+            $('.mobile-menu').removeClass('open');
+        }
+    });
+
 });
 
 $(window).on('resize', function() {
@@ -306,11 +331,9 @@ function initForm(curForm) {
 function windowOpen(linkWindow, dataWindow) {
     $('html').addClass('window-open');
 
-    if ($('.window').length > 0) {
-        $('.window').remove();
+    if ($('.window').length == 0) {
+        $('body').append('<div class="window"><div class="window-loading"></div></div>')
     }
-
-    $('body').append('<div class="window"><div class="window-loading"></div></div>')
 
     $.ajax({
         type: 'POST',
@@ -320,6 +343,9 @@ function windowOpen(linkWindow, dataWindow) {
         cache: false
     }).done(function(html) {
         if ($('.window').length > 0) {
+            $('.window').remove();
+            $('body').append('<div class="window"><div class="window-loading"></div></div>')
+
             $('.window').append('<div class="window-container window-container-load"><div class="window-content">' + html + '<a href="#" class="window-close"></a></div></div>')
 
             if ($('.window-container img').length > 0) {
