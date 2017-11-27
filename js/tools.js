@@ -80,44 +80,54 @@ $(document).ready(function() {
         if (!curLi.hasClass('active')) {
             $('.service-gallery-preview ul li.active').removeClass('active');
             curLi.addClass('active');
-            $('.service-gallery-big img').attr('src', curLink.attr('href'));
+            var curIndex = $('.service-gallery-preview ul li').index(curLi);
+            $('.service-gallery-big-list').slick('slickGoTo', curIndex);
         }
         e.preventDefault();
     });
 
-    $('.service-gallery-big').click(function(e) {
-        var curArray = [];
-        $('.service-gallery-preview a').each(function() {
-            curArray.push({src: $(this).attr('rel')});
-        });
-        var curIndex = $('.service-gallery-preview li').index($('.service-gallery-preview li.active'));
-        $.fancybox.open(curArray, {
-                baseTpl	: '<div class="fancybox-container" role="dialog" tabindex="-1">' +
-                    '<div class="fancybox-bg"></div>' +
-                    '<div class="fancybox-controls">' +
-                        '<div class="fancybox-infobar">' +
-                            '<button data-fancybox-previous class="fancybox-button fancybox-button--left" title="Предыдущая"></button>' +
-                            '<div class="fancybox-infobar__body">' +
-                                '<span class="js-fancybox-index"></span>&nbsp;/&nbsp;<span class="js-fancybox-count"></span>' +
-                            '</div>' +
-                            '<button data-fancybox-next class="fancybox-button fancybox-button--right" title="Следующая"></button>' +
-                        '</div>' +
-                        '<div class="fancybox-buttons">' +
-                            '<button data-fancybox-close class="fancybox-button fancybox-button--close" title="Закрыть (Esc)"></button>' +
-                        '</div>' +
-                    '</div>' +
-                    '<div class="fancybox-slider-wrap">' +
-                        '<div class="fancybox-slider"></div>' +
-                    '</div>' +
-                    '<div class="fancybox-caption-wrap"><div class="fancybox-caption"></div></div>' +
-                '</div>',
-                slideShow : false,
-                fullScreen : false,
-                thumbs : false
+    $('.service-gallery-big-list').slick({
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: '<button type="button" class="slick-prev"></button>',
+        nextArrow: '<button type="button" class="slick-next"></button>',
+        adaptiveHeight: true,
+        dots: false,
+        responsive: [
+            {
+                breakpoint: 1199,
+                settings: {
+                    arrows: false,
+                    dots: true
+                }
+            }
+        ]
+    }).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+        $('.service-gallery-preview ul li.active').removeClass('active');
+        $('.service-gallery-preview ul li').eq(nextSlide).addClass('active');
+    });
+
+    $('[data-fancybox]').fancybox({
+        lang : 'ru',
+        i18n : {
+            'ru' : {
+                CLOSE       : 'Закрыть',
+                NEXT        : 'Следующая',
+                PREV        : 'Предыдущая',
+                ERROR       : 'The requested content cannot be loaded. <br/> Please try again later.',
+                PLAY_START  : 'Start slideshow',
+                PLAY_STOP   : 'Pause slideshow',
+                FULL_SCREEN : 'Full screen',
+                THUMBS      : 'Thumbnails',
+                DOWNLOAD    : 'Download',
+                SHARE       : 'Share',
+                ZOOM        : 'Zoom'
             },
-            curIndex
-        );
-        e.preventDefault();
+        },
+        buttons : [
+            'close'
+        ]
     });
 
     $('.service-balls-list-inner').slick({
@@ -143,24 +153,6 @@ $(document).ready(function() {
                 }
             }
         ]
-    });
-
-    $('.service-gallery').each(function() {
-        var curGallery = $(this);
-        var mobileGallery = '<div class="service-gallery-mobile-wrap"><div class="service-gallery-mobile">';
-        curGallery.find('.service-gallery-preview a').each(function() {
-            mobileGallery += '<div class="service-gallery-mobile-item"><img src="' + $(this).attr('href') + '" alt="" /></div>';
-        });
-        mobileGallery += '</div></div>';
-        curGallery.append(mobileGallery);
-        curGallery.find('.service-gallery-mobile').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            adaptiveHeight: true,
-            dots: true
-        });
     });
 
     $('.menu-add-icon').click(function() {
