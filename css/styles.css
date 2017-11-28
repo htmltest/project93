@@ -627,19 +627,22 @@ footer {background:#000; height:285px; position:relative; margin:-285px 0 0 0; m
 .service-balls-item a:hover img {box-shadow:0 5px 29px rgba(162, 160, 162, .88)}
 .service-balls-item-title {font-weight:bold; font-size:24px; line-height:30px; letter-spacing:0; text-align:center; padding:29px 0 0 0}
 .service-balls-list .slick-prev,
-.service-balls-list .slick-next {display:block; position:absolute; z-index:2; top:50%; width:47px; height:131px; border:none; border-radius:0; margin:-65px 0 0 0; padding:0; outline:none; background:url(../images/service-balls-arrows.png); -webkit-appearance:none; cursor:pointer; transition:all .1s ease-in-out}
+.service-balls-list .slick-next {display:block; position:absolute; z-index:2; top:80px; width:47px; height:131px; border:none; border-radius:0; margin:0; padding:0; outline:none; background:url(../images/service-balls-arrows.png); -webkit-appearance:none; cursor:pointer; transition:all .1s ease-in-out}
 .service-balls-list .slick-prev {left:-150px}
 .service-balls-list .slick-next {right:-150px; background-position:-48px top}
 .service-balls-list .slick-prev:hover,
 .service-balls-list .slick-next:hover {transform:scale(1.25)}
 
+@media screen and (max-width:1680px) {
+    .service-balls-list .slick-prev,
+    .service-balls-list .slick-next {width:24px; height:65px; top:115px; background:url(../images/service-balls-arrows-mobile.png)}
+    .service-balls-list .slick-prev {left:-25px}
+    .service-balls-list .slick-next {right:-25px; background-position:-25px top}
+}
+
 @media screen and (max-width:1199px) {
     .service-balls-title {margin:0}
     .service-balls-title:before {left:-74px}
-    .service-balls-list .slick-prev,
-    .service-balls-list .slick-next {width:24px; height:65px; margin-top:-33px; background:url(../images/service-balls-arrows-mobile.png)}
-    .service-balls-list .slick-prev {left:-25px}
-    .service-balls-list .slick-next {right:-25px; background-position:-25px top}
 }
 
 .service-call {background:#28292b url(../images/main-how.jpg) no-repeat center top; padding:43px 0 52px 0; color:#fff}
