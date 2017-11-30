@@ -15,7 +15,64 @@ $(document).ready(function() {
     });
 
     $('body').on('click', '.window-link', function(e) {
-        windowOpen($(this).attr('href'));
+        var curLink = $(this);
+        if (curLink.hasClass('order-link')) {
+            windowOpen($(this).attr('href'), null, function() {
+                var categoryCurrent = curLink.data('category');
+                if (typeof (categoryCurrent) == 'undefined') {
+                    categoryCurrent = '';
+                }
+                var holidayCurrent = curLink.data('holiday');
+                if (typeof (holidayCurrent) == 'undefined') {
+                    holidayCurrent = '';
+                }
+                if (holidayCurrent != '' && categoryCurrent == '') {
+                    for (var i = 0; i < category.length; i++) {
+                        var curEl = category[i];
+                        var holidayList = curEl.list;
+                        for (var j = 0; j < holidayList.length; j++) {
+                            var curSubEl = holidayList[j];
+                            if (holidayCurrent == curSubEl.value) {
+                                categoryCurrent = curEl.value;
+                            }
+                        }
+                    }
+                }
+                var categoryHTML = '<option value=""></option>';
+                var holidayHTML = '<option value=""></option>';
+                for (var i = 0; i < category.length; i++) {
+                    var curEl = category[i];
+                    var categorySelected = '';
+                    if (categoryCurrent == curEl.value) {
+                        categorySelected = ' selected="selected"';
+                    }
+                    categoryHTML += '<option value="' + curEl.value + '"' + categorySelected + '>' + curEl.title + '</option>';
+                    if (categoryCurrent == curEl.value) {
+                        var holidayList = curEl.list;
+                        for (var j = 0; j < holidayList.length; j++) {
+                            var curSubEl = holidayList[j];
+                            var holidaySelected = '';
+                            if (holidayCurrent == curSubEl.value) {
+                                holidaySelected = ' selected="selected"';
+                            }
+                            var curHolidayMonth = '';
+                            if (curSubEl.month != '') {
+                                curHolidayMonth = ' data-month="' + curSubEl.month + '"';
+                            }
+                            var curHolidayDay = '';
+                            if (curSubEl.day != '') {
+                                curHolidayDay = ' data-day="' + curSubEl.day + '"';
+                            }
+                            holidayHTML += '<option value="' + curSubEl.value + '"' + curHolidayMonth + curHolidayDay + holidaySelected + '>' + curSubEl.title + '</option>';
+                        }
+                    }
+                }
+                $('.window #categorySelect').html(categoryHTML);
+                $('.window #holidaySelect').html(holidayHTML);
+            });
+        } else {
+            windowOpen($(this).attr('href'));
+        }
         e.preventDefault();
     });
 
@@ -272,6 +329,31 @@ function initForm(curForm) {
         });
     }, 100);
 
+    $('.window #categorySelect').change(function() {
+        var curValue = $(this).val();
+        var holidayHTML = '<option value=""></option>';
+        for (var i = 0; i < category.length; i++) {
+            var curEl = category[i];
+            if (curValue == curEl.value) {
+                var holidayList = curEl.list;
+                for (var j = 0; j < holidayList.length; j++) {
+                    var curSubEl = holidayList[j];
+                    var curHolidayMonth = '';
+                    if (curSubEl.month != '') {
+                        curHolidayMonth = ' data-month="' + curSubEl.month + '"';
+                    }
+                    var curHolidayDay = '';
+                    if (curSubEl.day != '') {
+                        curHolidayDay = ' data-day="' + curSubEl.day + '"';
+                    }
+                    holidayHTML += '<option value="' + curSubEl.value + '"' + curHolidayMonth + curHolidayDay + '>' + curSubEl.title + '</option>';
+                }
+            }
+        }
+        $('.window #holidaySelect').html(holidayHTML);
+        $('.window #holidaySelect').trigger('chosen:updated');
+    });
+
     $('.window #holidaySelect').change(function() {
         var curSelect = $(this);
         var holidayMonth = $('.window #holidaySelect option:selected').data('month');
@@ -320,7 +402,7 @@ function initForm(curForm) {
     }
 }
 
-function windowOpen(linkWindow, dataWindow) {
+function windowOpen(linkWindow, dataWindow, callbackWindow) {
     $('html').addClass('window-open');
 
     if ($('.window').length == 0) {
@@ -358,6 +440,10 @@ function windowOpen(linkWindow, dataWindow) {
         } else {
             $('.window-container').removeClass('window-container-load');
             windowPosition();
+        }
+
+        if (typeof (callbackWindow) != 'undefined') {
+            callbackWindow.call();
         }
 
         $(window).resize(function() {

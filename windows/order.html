@@ -1,17 +1,212 @@
+<script>
+    var category = [
+                         {
+                            value   : '1',
+                            title   : 'Праздник',
+                            list    : [
+                                        {
+                                            value   : '1',
+                                            title   : 'День рождения',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '2',
+                                            title   : 'Свадьба',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '3',
+                                            title   : 'Новый год',
+                                            month   : '01',
+                                            day     : '01',
+                                        },
+                                        {
+                                            value   : '4',
+                                            title   : 'Валентинов день',
+                                            month   : '02',
+                                            day     : '14',
+                                        },
+                                        {
+                                            value   : '5',
+                                            title   : '23 февраля',
+                                            month   : '02',
+                                            day     : '23',
+                                        },
+                                        {
+                                            value   : '6',
+                                            title   : '8 марта',
+                                            month   : '03',
+                                            day     : '08',
+                                        },
+                                        {
+                                            value   : '7',
+                                            title   : 'Выпускной',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '8',
+                                            title   : '1 сентября',
+                                            month   : '09',
+                                            day     : '01',
+                                        },
+                                    ]
+                        },
+
+                        {
+                            value   : '2',
+                            title   : 'Леди',
+                            list    : [
+                                        {
+                                            value   : '9',
+                                            title   : 'Свадьба',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '10',
+                                            title   : 'День рождения',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '11',
+                                            title   : 'Валентинов день',
+                                            month   : '02',
+                                            day     : '14',
+                                        },
+                                        {
+                                            value   : '12',
+                                            title   : '8 марта',
+                                            month   : '03',
+                                            day     : '08',
+                                        },
+                                    ]
+                        },
+
+                        {
+                            value   : '3',
+                            title   : 'Джентльмены',
+                            list    : [
+                                        {
+                                            value   : '13',
+                                            title   : 'День рождения',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '14',
+                                            title   : '23 февраля',
+                                            month   : '02',
+                                            day     : '23',
+                                        },
+                                    ]
+                        },
+
+                        {
+                            value   : '4',
+                            title   : 'Дети',
+                            list    : [
+                                        {
+                                            value   : '15',
+                                            title   : 'День рождения',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                    ]
+                        },
+
+                        {
+                            value   : '5',
+                            title   : 'Бизнес',
+                            list    : [
+                                        {
+                                            value   : '16',
+                                            title   : 'Арт декор мероприятий',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '17',
+                                            title   : 'День рождения компании',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                    ]
+                        },
+
+                        {
+                            value   : '6',
+                            title   : 'Декор',
+                            list    : [
+                                        {
+                                            value   : '18',
+                                            title   : 'День рождения',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '19',
+                                            title   : 'Свадьба',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '20',
+                                            title   : 'Новый год',
+                                            month   : '01',
+                                            day     : '01',
+                                        },
+                                        {
+                                            value   : '21',
+                                            title   : 'Валентинов день',
+                                            month   : '02',
+                                            day     : '14',
+                                        },
+                                        {
+                                            value   : '22',
+                                            title   : '23 февраля',
+                                            month   : '02',
+                                            day     : '23',
+                                        },
+                                        {
+                                            value   : '23',
+                                            title   : '8 марта',
+                                            month   : '03',
+                                            day     : '08',
+                                        },
+                                        {
+                                            value   : '24',
+                                            title   : 'Выпускной',
+                                            month   : '',
+                                            day     : '',
+                                        },
+                                        {
+                                            value   : '25',
+                                            title   : '1 сентября',
+                                            month   : '09',
+                                            day     : '01',
+                                        },
+                                        {
+                                            value   : '26',
+                                            title   : 'Бизнес',
+                                            month   : '0',
+                                            day     : '0',
+                                        },
+                                    ]
+                        },
+                    ];
+</script>
 <div class="window-order">
     <div class="window-order-title">Заказать оформление</div>
     <form action="windows/success.html" method="post" class="window-form">
         <div class="form-row">
             <div class="form-third">
                 <div class="form-select">
-                    <select name="category" data-placeholder="Направление">
+                    <select name="category" data-placeholder="Направление" id="categorySelect">
                         <option value=""></option>
-                        <option value="1">Праздник</option>
-                        <option value="2">Декор</option>
-                        <option value="3">Леди</option>
-                        <option value="4">Джентельмены</option>
-                        <option value="5">Дети</option>
-                        <option value="6">Бизнес</option>
                     </select>
                 </div>
             </div>
@@ -19,15 +214,6 @@
                 <div class="form-select">
                     <select name="holiday" data-placeholder="Праздник" id="holidaySelect">
                         <option value=""></option>
-                        <option value="1">День рождения</option>
-                        <option value="2">Свадьба</option>
-                        <option value="3" data-month="01" data-day="01">Новый год</option>
-                        <option value="4" data-month="02" data-day="14">Валентинов день</option>
-                        <option value="5" data-month="02" data-day="23">23 февраля</option>
-                        <option value="6" data-month="03" data-day="08">8 марта</option>
-                        <option value="7">Выпускной</option>
-                        <option value="8" data-month="09" data-day="01">1 сентября</option>
-                        <option value="9" data-month="12" data-day="12">День Конституции</option>
                     </select>
                 </div>
             </div>
