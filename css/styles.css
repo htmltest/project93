@@ -108,7 +108,8 @@ label.error {display:block; color:#f00; font-size:14px; line-height:20px; paddin
 header {background:#fff; height:110px}
 .header-fixed header {position:fixed; left:0; top:0; right:0; z-index:99; box-shadow:0 0 5px rgba(0, 0, 0, .25)}
 
-.logo {float:left; width:217px; height:60px; background:url(../images/logo.svg) no-repeat; background-size:100%; margin:25px 0 0 0}
+.logo {float:left; width:217px; height:60px; background:url(../images/logo.svg) no-repeat; background-size:100%; margin:25px 0 0 0; position:relative}
+.logo a {display:block; position:absolute; left:0; top:0; right:0; bottom:0}
 
 @media screen and (max-width:1199px) {
     .logo {margin:25px 0 0 -35px}
