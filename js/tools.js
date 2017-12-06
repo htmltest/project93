@@ -115,16 +115,40 @@ $(document).ready(function() {
 
     $('.main-history, .main-how, .service-call, .content-about, .content-contacts-inner').parallaxBackground();
 
+    var curCount = 0;
     $('.services-list').isotope({
-        itemSelector: '.services-item'
+        itemSelector: '.services-item',
+        filter: function() {
+            var number = $(this).find('.number').text();
+            curCount++;
+            if (curCount < 13) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     });
 
     $('.services-header-category a').click(function(e) {
         var curLi = $(this).parent();
         if (!curLi.hasClass('active')) {
             $('.services-header-category li.active').removeClass('active');
+            var curFilter = curLi.data('filter').replace('.', '');
+            curCount = 0;
             $('.services-list').isotope({
-                filter: curLi.data('filter')
+                filter: function() {
+                    var number = $(this).find('.number').text();
+                    if ($(this).hasClass(curFilter)) {
+                        curCount++;
+                        if (curCount < 13) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+                }
             });
             curLi.addClass('active');
         }

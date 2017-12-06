@@ -187,10 +187,10 @@ nav ul li.active a {color:#fff}
 .menu-add-content ul li a:hover:after {content:""; display:inline-block; position:absolute; left:0; right:0; bottom:0; height:2px; background:#fff}
 
 .slider-list {position:relative; width:100%; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; overflow:hidden}
-.slider-item {display:inline-block; vertical-align:top; width:100%; white-space:normal; font-size:17px; line-height:24px; letter-spacing:0; background:#000 no-repeat center top}
-.slider-item-inner {width:510px; height:600px; margin:0 0 0 90px; position:relative}
+.slider-item {display:inline-block; vertical-align:top; width:100%; white-space:normal; font-size:17px; line-height:24px; letter-spacing:0; background:#000 no-repeat center}
+.slider-item-inner {width:425px; height:600px; margin:0 0 0 90px; position:relative}
 .slider-item-blur {position:absolute; left:0; top:0; right:0; bottom:0; overflow:hidden}
-.slider-item-blur-inner {position:absolute; left:0; top:0; right:-720px; bottom:0; background:no-repeat center; filter:blur(36px); transform:scale(1.2)}
+.slider-item-blur-inner {position:absolute; left:-100px; top:-100px; right:-905px; bottom:-100px; filter:blur(36px); background:no-repeat center}
 .slider-item-content {position:relative; height:600px; padding:0 75px; color:#fff}
 .slider-item-category {text-transform:uppercase; padding:50px 0 0 0; letter-spacing:2px; font-size:15px}
 .slider-item-title {font-weight:bold; font-size:60px; line-height:60px; padding:25px 0 0 0}
@@ -221,9 +221,10 @@ nav ul li.active a {color:#fff}
 }
 
 @media screen and (max-width:1439px) {
+    .slider-item {background-size:auto 100%}
     .slider-item-inner {margin:0; width:470px}
     .slider-item-content {padding:0 70px}
-    .slider-item-blur-inner {right:-760px}
+    .slider-item-blur-inner {right:-860px; background-size:auto 100%}
     .slider-item-text:before {margin-left:-70px}
     .slider-item-link {padding-left:21px}
     .slider-list .slick-dots {margin-left:0; left:205px}
@@ -235,7 +236,7 @@ nav ul li.active a {color:#fff}
 
 @media screen and (max-width:1199px) {
     .slider-item {background-size:auto 100%}
-    .slider-item-inner {width:auto; height:625px; margin:300px -60px 0 -60px}
+    .slider-item-inner {width:auto; height:600px; margin:300px -60px 0 -60px}
     .slider-item-blur-inner {right:0; top:-300px; background-position:center top; background-size:auto 100%}
     .slider-item-content {padding:0 60px}
     .slider-item-category {padding:48px 0 0 0}
@@ -593,12 +594,12 @@ footer {background:#000; height:285px; position:relative; margin:-285px 0 0 0; m
     .service-gallery .slick-dots li.slick-active button {background:#fff; cursor:default}
 }
 
-.service-text {float:right; width:23%; padding:60px 5% 0 0}
+.service-text {float:right; width:23%; padding:0 5% 0 0}
 .service-title {font-weight:bold; font-size:48px; line-height:50px}
 .service-descr {color:#666; padding:48px 0 0 0}
-.service-price {font-size:30px; padding:46px 0 0 0}
+.service-price {font-size:30px; padding:23px 0 0 0}
 .service-price:before {content:""; display:block; width:68px; height:1px; background:#000; margin:0 0 48px 0}
-.service-order-link {font-weight:bold; line-height:50px; padding:72px 0 0 0}
+.service-order-link {font-weight:bold; line-height:50px; padding:46px 0 0 0}
 .service-order-link a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; padding:0 35px}
 .service-order-link a:before {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:#939; transform:skewX(-27deg)}
 .service-order-link a:hover:before {opacity:.9}
@@ -610,14 +611,14 @@ footer {background:#000; height:285px; position:relative; margin:-285px 0 0 0; m
 
 @media screen and (max-width:1199px) {
     .service-title  {display:none}
-    .service-text {float:none; width:auto; padding:30px 0 0 0}
+    .service-text {float:none; width:auto; padding:0}
     .service-order-link a {display:block; padding:0; text-align:center}
     .service-order-link a:before {left:13px; right:13px}
 }
 
 .rubl {font-family:Roboto, sans-serif; font-size:26px}
 
-.service-balls {background:#f1f0f1; padding:53px 0 48px 0}
+.service-balls {background:#f1f0f1; padding:73px 0 48px 0}
 .service-balls-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 0 120px; position:relative}
 .service-balls-title:before {content:""; display:block; position:absolute; left:-94px; top:-36px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
 .service-balls-list {margin:56px -15px 0 -15px; font-size:0; line-height:0; letter-spacing:-1px}
@@ -646,7 +647,7 @@ footer {background:#000; height:285px; position:relative; margin:-285px 0 0 0; m
     .service-balls-title:before {left:-74px}
 }
 
-.service-call {background:#28292b url(../images/main-how.jpg) no-repeat center top; padding:43px 0 52px 0; color:#fff}
+.service-call {background:#28292b url(../images/main-how.jpg) no-repeat center top; padding:45px 0 52px 0; color:#fff}
 .service-call-inner {padding:0 0 0 120px}
 .service-call-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 29px 0; position:relative}
 .service-call-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
@@ -689,7 +690,7 @@ footer {background:#000; height:285px; position:relative; margin:-285px 0 0 0; m
     .service-other-list .slick-next {right:-25px; background-position:-25px top}
 }
 
-.service-stories {padding:30px 0}
+.service-stories {padding:45px 0 30px 0}
 .service-stories-inner {background:#f1f0f1}
 .service-stories-title {font-weight:bold; font-size:60px; line-height:60px; margin:0 0 14px 120px; position:relative}
 .service-stories-title:before {content:""; display:block; position:absolute; left:-94px; top:-8px; width:60px; height:120px; background:url(../images/main-history-title.png) no-repeat}
@@ -708,7 +709,7 @@ footer {background:#000; height:285px; position:relative; margin:-285px 0 0 0; m
 }
 .stories-item-category {font-size:16px; line-height:30px; letter-spacing:0; text-align:center; color:#ccc; text-transform:uppercase; padding:31px 0 0 0}
 .stories-item-title {font-weight:bold; font-size:24px; line-height:30px; letter-spacing:0; text-align:center}
-.stories-all-link {text-align:center; font-weight:bold; letter-spacing:2px; text-transform:uppercase; font-size:16px}
+.stories-all-link {text-align:center; font-weight:bold; letter-spacing:2px; text-transform:uppercase; font-size:16px; padding:44px 0 0 0}
 
 @media screen and (max-width:1199px) {
     .service-stories .stories-list {white-space:nowrap; padding-top:11px}
