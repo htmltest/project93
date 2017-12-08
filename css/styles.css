@@ -118,7 +118,7 @@ header {background:#fff; height:110px}
 .title {float:left; color:#666; font-size:16px; line-height:19px; margin:36px 0 0 23px; text-indent:12px; position:relative}
 .title:before {content:""; display:block; width:32px; height:62px; background:url(../images/title.svg) no-repeat; background-size:100%; position:absolute; left:-26px; top:-11px}
 
-@media screen and (max-width:1199px) {
+@media screen and (max-width:630px) {
     .title {display:none}
 }
 
@@ -186,16 +186,16 @@ nav ul li.active a {color:#fff}
 .menu-add-content ul li a {color:#fff; text-decoration:none; position:relative}
 .menu-add-content ul li a:hover:after {content:""; display:inline-block; position:absolute; left:0; right:0; bottom:0; height:2px; background:#fff}
 
-.slider-list {position:relative; width:100%; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; overflow:hidden}
-.slider-item {display:inline-block; vertical-align:top; width:100%; white-space:normal; font-size:17px; line-height:24px; letter-spacing:0; background:#000 no-repeat center}
-.slider-item-inner {width:425px; height:600px; margin:0 0 0 90px; position:relative}
+.slider-list {max-width:1920px; margin:0 auto; position:relative; width:100%; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; overflow:hidden}
+.slider-item {display:inline-block; vertical-align:top; width:100%; white-space:normal; font-size:17px; line-height:24px; letter-spacing:0; background:#000 no-repeat center; background-size:100% auto}
+.slider-item-inner {width:450px; height:600px; margin:0 0 0 120px; position:relative; -webkit-transform:translateZ(0); -webkit-perspective:1000; -webkit-backface-visibility:hidden}
 .slider-item-blur {position:absolute; left:0; top:0; right:0; bottom:0; overflow:hidden}
 .slider-item-blur-inner {position:absolute; left:-100px; top:-100px; right:-905px; bottom:-100px; filter:blur(36px); background:no-repeat center}
-.slider-item-content {position:relative; height:600px; padding:0 75px; color:#fff}
+.slider-item-content {position:relative; height:600px; padding:0 60px; color:#fff}
 .slider-item-category {text-transform:uppercase; padding:50px 0 0 0; letter-spacing:2px; font-size:15px}
 .slider-item-title {font-weight:bold; font-size:60px; line-height:60px; padding:25px 0 0 0}
 .slider-item-text {font-size:17px; line-height:24px; padding:52px 0 0 0; min-height:112px}
-.slider-item-text:before {content:""; display:block; width:240px; height:1px; background:#fff; margin:0 0 39px -75px}
+.slider-item-text:before {content:""; display:block; width:240px; height:1px; background:#fff; margin:0 0 39px -60px}
 .slider-item-link {padding:55px 0 0 0}
 .slider-item-link a {display:inline-block; vertical-align:top; position:relative; color:#fff; text-decoration:none; padding:0 14px; font-weight:bold; font-size:20px; line-height:43px; transition:color .1s 0s ease-in-out}
 .slider-item-link a:hover {color:#000}
@@ -208,7 +208,7 @@ nav ul li.active a {color:#fff}
 .slider-list .slick-next {right:60px; background:url(../images/slider-next.svg) no-repeat; background-size:100%}
 .slider-list .slick-prev:hover,
 .slider-list .slick-next:hover {transform:scale(1.25)}
-.slider-list .slick-dots {z-index:2; font-size:0; line-height:0; letter-spacing:-1px; margin:0; padding:0; list-style:none; position:absolute; bottom:45px; left:50%; margin-left:-540px; opacity:.5}
+.slider-list .slick-dots {z-index:2; font-size:0; line-height:0; letter-spacing:-1px; margin:0; padding:0; list-style:none; position:absolute; bottom:45px; left:50%; margin-left:-525px; opacity:.5}
 .slider-list .slick-dots li {margin:0 0 0 15px; padding:0; float:left; vertical-align:top}
 .slider-list .slick-dots li:first-child {margin:0}
 .slider-list .slick-dots li:before {display:none}
@@ -216,44 +216,35 @@ nav ul li.active a {color:#fff}
 .slider-list .slick-dots li button:hover {background:#fff}
 .slider-list .slick-dots li.slick-active button {background:#fff; cursor:default}
 
-@media screen and (min-width:1921px) {
-    .slider-item {background-size:100% auto}
-}
-
 @media screen and (max-width:1439px) {
-    .slider-item {background-size:auto 100%}
-    .slider-item-inner {margin:0; width:470px}
-    .slider-item-content {padding:0 70px}
-    .slider-item-blur-inner {right:-860px; background-size:auto 100%}
-    .slider-item-text:before {margin-left:-70px}
+    .slider-item {background-size:1440px auto}
+    .slider-item-inner {margin:0}
+    .slider-item-blur-inner {right:-860px; background-size:1440px auto}
     .slider-item-link {padding-left:21px}
-    .slider-list .slick-dots {margin-left:0; left:205px}
-}
-
-@media screen and (max-width:1280px) {
-    .slider-list .slick-dots {left:85px}
 }
 
 @media screen and (max-width:1199px) {
-    .slider-item {background-size:auto 100%}
-    .slider-item-inner {width:auto; height:600px; margin:300px -60px 0 -60px}
-    .slider-item-blur-inner {right:0; top:-300px; background-position:center top; background-size:auto 100%}
+    .slider-list .container {padding:0; max-width:none}
+    .slider-list .slick-dots {left:60px; margin-left:0}
+}
+
+@media screen and (max-width:959px) {
+    .slider-list .container {padding:0 60px}
+    .slider-item {background-size:1920px auto; background-position:right center}
+    .slider-item-inner {width:auto; height:170px; margin:300px -60px 0 -60px; background-position:right center; background-size:1920px auto}
     .slider-item-content {padding:0 60px}
-    .slider-item-category {padding:48px 0 0 0}
-    .slider-item-title {padding:14px 0 0 0}
-    .slider-item-text {padding:39px 0 0 0}
-    .slider-item-text:before {margin-left:-60px; margin-bottom:47px}
-    .slider-item-link {padding:53px 0 0 0}
-    .slider-item-link a {display:block; padding:0; text-align:center}
-    .slider-item-link a:before {left:13px; right:13px}
-    .slider-list .slick-dots {left:0; margin-left:0; text-align:center; right:0}
+    .slider-item-category {padding:18px 0 0 0}
+    .slider-item-title {padding:14px 0 0 0; font-size:30px; line-height:36px}
+    .slider-item-text {display:none}
+    .slider-item-link {display:none}
+    .slider-list .slick-dots {left:0; margin-left:0; text-align:center; right:0; bottom:30px}
     .slider-list .slick-dots li {float:none; display:inline-block; vertical-align:top}
 }
 
 .main-history {background:url(../images/main-history.jpg) no-repeat center top; padding:0 0 60px 0}
 
 @media screen and (max-width:1199px) {
-    .main-history {padding:0 0 80px 0; background:url(../images/main-history-mobile.jpg) no-repeat center top !important; background-size:100% auto !important}
+    .main-history {padding:0 0 80px 0; background:url(../images/main-history.jpg) no-repeat center top !important; background-size:auto 100% !important}
     .main-history .parallax-inner {display:none}
 }
 
@@ -563,7 +554,7 @@ footer {background:#000; height:285px; position:relative; margin:-285px 0 0 0; m
 .service-gallery {float:left; width:66.66%; line-height:0}
 .service-gallery-big {position:relative; cursor:pointer; width:100%; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; overflow:hidden}
 .service-gallery-big-list {position:relative}
-.service-gallery-big-item {display:inline-block; vertical-align:top; width:100%; max-height:calc(100vh - 289px)}
+.service-gallery-big-item {display:inline-block; vertical-align:top; width:100%}
 .service-gallery-big-item a {display:block; position:relative}
 .service-gallery-big-item img {display:block; width:100%}
 .service-gallery-big-item a:after {content:""; display:block; width:30px; height:30px; position:absolute; left:20px; top:20px; background:url(../images/service-gallery-zoom.png)}

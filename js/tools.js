@@ -97,7 +97,7 @@ $(document).ready(function() {
         dots: true,
         responsive: [
             {
-                breakpoint: 1439,
+                breakpoint: 1281,
                 settings: {
                     arrows: false
                 }
@@ -187,6 +187,44 @@ $(document).ready(function() {
     }).on('beforeChange', function(event, slick, currentSlide, nextSlide){
         $('.service-gallery-preview ul li.active').removeClass('active');
         $('.service-gallery-preview ul li').eq(nextSlide).addClass('active');
+    });
+
+    $(window).on('load resize', function() {
+        if ($('.service-gallery-big-list').length > 0) {
+            var curIndex = 0;
+            if ($('.service-gallery-big-list').hasClass('slick-slider')) {
+                curIndex = $('.service-gallery-big-list').slick('slickCurrentSlide');
+                $('.service-gallery-big-list').slick('unslick');
+            }
+            var curHeight = $(window).height() - 289;
+            if (curHeight < 200) {
+                curHeight = 200;
+            }
+            $('.service-gallery-big-item').css({'height': curHeight});
+
+            $('.service-gallery-big-list').slick({
+                infinite: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: '<button type="button" class="slick-prev"></button>',
+                nextArrow: '<button type="button" class="slick-next"></button>',
+                adaptiveHeight: true,
+                dots: false,
+                initialSlide: curIndex,
+                responsive: [
+                    {
+                        breakpoint: 1199,
+                        settings: {
+                            arrows: false,
+                            dots: true
+                        }
+                    }
+                ]
+            }).on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                $('.service-gallery-preview ul li.active').removeClass('active');
+                $('.service-gallery-preview ul li').eq(nextSlide).addClass('active');
+            });
+        }
     });
 
     $('[data-fancybox]').fancybox({
