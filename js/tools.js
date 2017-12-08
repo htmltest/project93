@@ -197,8 +197,8 @@ $(document).ready(function() {
                 $('.service-gallery-big-list').slick('unslick');
             }
             var curHeight = $(window).height() - 289;
-            if (curHeight < 200) {
-                curHeight = 200;
+            if (curHeight < 400) {
+                curHeight = 400;
             }
             $('.service-gallery-big-item').css({'height': curHeight});
 

@@ -187,9 +187,13 @@ nav ul li.active a {color:#fff}
 .menu-add-content ul li a:hover:after {content:""; display:inline-block; position:absolute; left:0; right:0; bottom:0; height:2px; background:#fff}
 
 .slider-list {max-width:1920px; margin:0 auto; position:relative; width:100%; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; overflow:hidden}
-.slider-item {display:inline-block; vertical-align:top; width:100%; white-space:normal; font-size:17px; line-height:24px; letter-spacing:0; background:#000 no-repeat center; background-size:100% auto}
+.slider-item {display:inline-block; vertical-align:top; width:100%; white-space:normal; font-size:17px; line-height:24px; letter-spacing:0; background:#000; position:relative}
+.slider-item-bg {position:absolute; left:0; top:0; right:0; bottom:0; background:no-repeat center; background-size:100% auto}
+.slider-item-bg-mobile {display:none; position:absolute; left:0; top:0; right:0; bottom:0; background:no-repeat center; background-size:100% auto}
+.slider-item .container {position:relative}
 .slider-item-inner {width:450px; height:600px; margin:0 0 0 120px; position:relative; -webkit-transform:translateZ(0); -webkit-perspective:1000; -webkit-backface-visibility:hidden}
 .slider-item-blur {position:absolute; left:0; top:0; right:0; bottom:0; overflow:hidden}
+.slider-item-blur-mobile {display:none; position:absolute; left:0; top:0; right:0; bottom:0; overflow:hidden}
 .slider-item-blur-inner {position:absolute; left:-100px; top:-100px; right:-905px; bottom:-100px; filter:blur(36px); background:no-repeat center}
 .slider-item-content {position:relative; height:600px; padding:0 60px; color:#fff}
 .slider-item-category {text-transform:uppercase; padding:50px 0 0 0; letter-spacing:2px; font-size:15px}
@@ -217,7 +221,7 @@ nav ul li.active a {color:#fff}
 .slider-list .slick-dots li.slick-active button {background:#fff; cursor:default}
 
 @media screen and (max-width:1439px) {
-    .slider-item {background-size:1440px auto}
+    .slider-item-bg {background-size:1440px auto}
     .slider-item-inner {margin:0}
     .slider-item-blur-inner {right:-860px; background-size:1440px auto}
     .slider-item-link {padding-left:21px}
@@ -229,9 +233,13 @@ nav ul li.active a {color:#fff}
 }
 
 @media screen and (max-width:959px) {
+    .slider-item-bg {display:none}
+    .slider-item-bg-mobile {display:block; background-size:cover; background-position:center}
+    .slider-item-blur {display:none}
+    .slider-item-blur-mobile {display:block}
     .slider-list .container {padding:0 60px}
-    .slider-item {background-size:1920px auto; background-position:right center}
-    .slider-item-inner {width:auto; height:170px; margin:300px -60px 0 -60px; background-position:right center; background-size:1920px auto}
+    .slider-item-inner {width:auto; height:170px; margin:300px -60px 0 -60px}
+    .slider-item-blur-inner {background-size:cover; background-position:center}
     .slider-item-content {padding:0 60px}
     .slider-item-category {padding:18px 0 0 0}
     .slider-item-title {padding:14px 0 0 0; font-size:30px; line-height:36px}
@@ -576,7 +584,7 @@ footer {background:#000; height:285px; position:relative; margin:-285px 0 0 0; m
 @media screen and (max-width:1199px) {
     .service-gallery {float:none; width:auto; margin:0 -60px}
     .service-gallery-preview {display:none}
-    .service-gallery-big-item {max-height:none}
+    .service-gallery-big-item {height:auto !important}
     .service-gallery .slick-dots {z-index:2; font-size:0; line-height:0; letter-spacing:-1px; margin:0; padding:0; list-style:none; position:absolute; bottom:33px; left:0; right:0; text-align:center}
     .service-gallery .slick-dots li {margin:0 0 0 10px; padding:0; display:inline-block; vertical-align:top}
     .service-gallery .slick-dots li:first-child {margin:0}
