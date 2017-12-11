@@ -465,6 +465,12 @@ function initForm(curForm) {
 }
 
 function windowOpen(linkWindow, dataWindow, callbackWindow) {
+    if (!$('html').hasClass('window-open')) {
+        var curScroll = $(window).scrollTop();
+        $('.wrapper').data('curScroll', curScroll);
+        $('.wrapper-inner').css({'top': -curScroll});
+    }
+
     $('html').addClass('window-open');
 
     if ($('.window').length == 0) {
@@ -538,5 +544,7 @@ function windowClose() {
     if ($('.window').length > 0) {
         $('.window').remove();
         $('html').removeClass('window-open');
+        $(window).scrollTop($('.wrapper').data('curScroll'));
+        $('.wrapper-inner').css({'top': 'auto'});
     }
 }

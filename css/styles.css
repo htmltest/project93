@@ -87,7 +87,7 @@ label.error {display:block; color:#f00; font-size:14px; line-height:20px; paddin
 .form-loading-text {font-weight:bold; font-size:30px; line-height:36px; color:#000; text-align:center; padding:40px 0 0 0}
 
 .wrapper {min-width:480px; width:100%; min-height:100%; position:relative; overflow:hidden}
-.wrapper-inner {padding:0 0 285px 0}
+.wrapper-inner {padding:0 0 285px 0; position:relative}
 .header-fixed .wrapper-inner {padding-top:110px}
 
 @media screen and (max-width:1199px) {
@@ -805,7 +805,7 @@ footer {background:#000; height:285px; position:relative; margin:-285px 0 0 0; m
 }
 
 .window-open {overflow:hidden}
-.window-open body {height:auto; overflow:hidden}
+.window-open .wrapper {height:100%}
 
 .window {position:fixed; left:0; top:0; right:0; bottom:0; z-index:99997; overflow:auto; background:rgba(0, 0, 0, .8)}
 .window-loading {position:absolute; left:50%; top:50%; width:24px; height:24px; margin:-12px 0 0 -12px; background:url(../images/loading.gif)}
